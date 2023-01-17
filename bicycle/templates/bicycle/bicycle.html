@@ -1,18 +1,20 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+
+{% block title %}
     <title>Bicycle</title>
+{% endblock %}
+
+{% block css_tag %}
     <link rel="stylesheet" href="{% static 'bicycle/css/base_tag.css' %}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <h1>Redy go!</h1>
     <ul>
         {% for bike_en, bike in bikes.items %}
         <li><a href="{% url 'name-model' model=bike_en %}">{{ bike }}</a> |</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

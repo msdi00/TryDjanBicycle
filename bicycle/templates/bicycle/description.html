@@ -1,15 +1,16 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ name_mod }}</title>
+{% block title %}
+    <title>Bicycle</title>
+{% endblock %}
+
+{% block css_tag %}
     <link rel="stylesheet" href="{% static 'bicycle/css/base_tag.css' %}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <h1>{{ name_mod|default:'Неверная модель' }}</h1>
     <p>{{ model_descr|default:'Описывать нечего' }}</p>
     <h3><a href="{% url 'name-bike' %}">Главная</a></h3>
-</body>
-</html>
+{% endblock %}
