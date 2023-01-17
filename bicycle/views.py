@@ -12,7 +12,7 @@ bike_description = {
     'urban': 'Универсальный байк',
 }
 
-views_bike = {
+types_bike = {
         'mount': 'Горные',
         'gravel': 'Гравийные',
         'folding': 'Складные',
@@ -23,14 +23,14 @@ views_bike = {
 
 def get_bicycle(request):
     context = {
-        'bikes': views_bike,
+        'bikes': types_bike,
     }
     return render(request, 'bicycle/bicycle.html', context=context)
 
 
 def get_description(request, model: str):
     context = {
-        'model_descr': bike_description[model],
-        'name_mod': views_bike[model],
+        'model_descr': bike_description.get(model),
+        'name_mod': types_bike.get(model),
     }
     return render(request, 'bicycle/description.html', context=context)
